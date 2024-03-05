@@ -5,7 +5,7 @@ struct DetailView: View {
     var productImage: String
     var productManufacturer: String
     var scannedBarcode: String
-    @State private var news: [String] = ["News Item 1", "News Item 2"] // Example news items
+    @State var news: [String] = []
 
     var body: some View {
         ScrollView {
@@ -26,16 +26,28 @@ struct DetailView: View {
                     .font(.subheadline)
                     .padding(.bottom, 10)
                 
+                Text("Price on Amazon: ")
+                    .font(.subheadline)
+                    .padding(.bottom, 10)
+                
+                Text("Manufacturer Integrity:")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
                 if !news.isEmpty {
-                    Text("Related News:")
-                        .font(.title3)
-                        .fontWeight(.bold)
                     
                     ForEach(news, id: \.self) { item in
-                        Text(item)
-                            .padding(.bottom, 2)
+                        Link(destination: URL(string: item)!) {
+                            Text(item)
+                                .foregroundColor(.blue) // You can customize the link appearance
+                                .padding(.bottom, 2)
+                        }
                     }
                 }
+                
+                Text("Ingredient Integrity:")
+                    .font(.title3)
+                    .fontWeight(.bold)
             }
             .padding()
         }
