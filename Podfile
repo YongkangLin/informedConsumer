@@ -8,6 +8,7 @@ pod 'Firebase/MLVision'
 pod 'Firebase/MLVisionBarcodeModel'
 pod 'GoogleMLKit/BarcodeScanning'
 pod 'Firebase/Firestore'
+pod 'ChatGPTSwift', '~> 1.3.1'
   # Pods for project
 
 end

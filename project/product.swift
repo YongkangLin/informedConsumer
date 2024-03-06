@@ -16,8 +16,21 @@ struct Product: Codable, Identifiable {
     let title: String
     let manufacturer: String
     let images: [String]
+    let online_stores: [OnlineStore]?
     var scannedBarcode: String?
-    var news: [String]? = []
+    var news: [news]? = []
+    var ingredientAnalysis: String?
+}
+
+struct news: Codable{
+    let headline: String
+    let url: String
+}
+
+struct OnlineStore: Codable {
+    let name: String
+    let price: String
+    let url: String
 }
 
 enum LoadingState {
